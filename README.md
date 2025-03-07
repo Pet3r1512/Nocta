@@ -7,18 +7,6 @@
     <img src="https://img.shields.io/github/v/release/Pet3r1512/DevIniter_CLI?style=flat" alt="GitHub Release">
   </a> </div> -->
 
-<h3 align="center"><strong>Nocta</strong></h3>
-
-  <p align="center">
-    Sleep Tracker and Monitor
-    <!-- <br />
-    <a href="https://deviniter.site/docs/introduction"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/Pet3r1512/DevIniter/issues/new?template=bug_report.md">Report Bug</a>
-    ·
-    <a href="https://github.com/Pet3r1512/DevIniter/issues/new?template=feature_request.md">Request Feature</a> -->
-  </p>
 </div>
 
 # Welcome to Nocta - Sleep Tracker and Monitor
