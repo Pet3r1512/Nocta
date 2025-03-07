@@ -2,6 +2,8 @@
 
 Our mission is to empower you to optimize your sleep, enhance your overall quality of life, and identify potential health risks at the earliest stage.
 
+As a developer or engineer, you spend a significant portion of your day coding, building, and fixing bugs. Therefore, you might underestimate the importance of sleep. Nocta is here to help you optimize your sleep and improve your overall well-being.
+
 ## How does Nocta work?
 
 Every night, your sleep is divided into multiple cycles, each containing different stages. Waking up at the right stage can help reduce stress and improve your overall well-being.
