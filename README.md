@@ -1,3 +1,26 @@
+<div align="center">
+  <a href="https://github.com/Pet3r1512/Nocta">
+    <img src="public/images/logos/Logo_full.png" alt="Logo" width="278.7" height="80">
+  </a>
+
+<!-- <div align="center"> <a href="https://github.com/Pet3r1512/DevIniter_CLI/releases">
+    <img src="https://img.shields.io/github/v/release/Pet3r1512/DevIniter_CLI?style=flat" alt="GitHub Release">
+  </a> </div> -->
+
+<h3 align="center"><strong>Nocta</strong></h3>
+
+  <p align="center">
+    Sleep Tracker and Monitor
+    <!-- <br />
+    <a href="https://deviniter.site/docs/introduction"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Pet3r1512/DevIniter/issues/new?template=bug_report.md">Report Bug</a>
+    ·
+    <a href="https://github.com/Pet3r1512/DevIniter/issues/new?template=feature_request.md">Request Feature</a> -->
+  </p>
+</div>
+
 # Welcome to Nocta - Sleep Tracker and Monitor
 
 Our mission is to empower you to optimize your sleep, enhance your overall quality of life, and identify potential health risks at the earliest stage.
