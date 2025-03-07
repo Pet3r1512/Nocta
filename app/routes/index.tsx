@@ -1,13 +1,17 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import Logo from "~/components/Layout/Logo";
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: Home,
-})
+});
 
 function Home() {
   return (
     <div className="p-2">
-      <h3>Welcome Home!!!</h3>
+      <div className="flex items-center">
+        <Logo />
+        <h1 className="text-3xl text-primary font-bold">Nocta</h1>
+      </div>
     </div>
-  )
+  );
 }
