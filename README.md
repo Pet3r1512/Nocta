@@ -1,72 +1,19 @@
-# Welcome to TanStack.com!
+# Welcome to Nocta - Sleep Tracker and Monitor
 
-This site is built with TanStack Router!
+Our mission is to empower you to optimize your sleep, enhance your overall quality of life, and identify potential health risks at the earliest stage.
 
-- [TanStack Router Docs](https://tanstack.com/router)
+## How does Nocta work?
 
-It's deployed automagically with Netlify!
+Every night, your sleep is divided into multiple cycles, each containing different stages. Waking up at the right stage can help reduce stress and improve your overall well-being.
 
-- [Netlify](https://netlify.com/)
+You choose the time you want to go to sleep, and Nocta will calculate and provide several optimal wake-up times, ensuring you get the best possible rest.
 
-## Development
+## What are Nocta's future plans?
 
-From your terminal:
+Currently, we are building a free and non-authenticated version where you can calculate wake-up times whenever you need.
 
-```sh
-pnpm install
-pnpm dev
-```
+In the future, there will be a version where you must sign in to save your sleeping times and get simple analytics from your sleep data.
 
-This starts your app in development mode, rebuilding assets on file changes.
+Additionally, there will be a premium version, where Nocta offers features that can predict potential health risks and provide a better sleep plan based on your previous sleep quality, duration, age, or occupation.
 
-## Editing and previewing the docs of TanStack projects locally
-
-The documentations for all TanStack projects except for `React Charts` are hosted on [https://tanstack.com](https://tanstack.com), powered by this TanStack Router app.
-In production, the markdown doc pages are fetched from the GitHub repos of the projects, but in development they are read from the local file system.
-
-Follow these steps if you want to edit the doc pages of a project (in these steps we'll assume it's [`TanStack/form`](https://github.com/tanstack/form)) and preview them locally :
-
-1. Create a new directory called `tanstack`.
-
-```sh
-mkdir tanstack
-```
-
-2. Enter the directory and clone this repo and the repo of the project there.
-
-```sh
-cd tanstack
-git clone git@github.com:TanStack/tanstack.com.git
-git clone git@github.com:TanStack/form.git
-```
-
-> [!NOTE]
-> Your `tanstack` directory should look like this:
->
-> ```
-> tanstack/
->    |
->    +-- form/
->    |
->    +-- tanstack.com/
-> ```
-
-> [!WARNING]
-> Make sure the name of the directory in your local file system matches the name of the project's repo. For example, `tanstack/form` must be cloned into `form` (this is the default) instead of `some-other-name`, because that way, the doc pages won't be found.
-
-3. Enter the `tanstack/tanstack.com` directory, install the dependencies and run the app in dev mode:
-
-```sh
-cd tanstack.com
-pnpm i
-# The app will run on https://localhost:3000 by default
-pnpm dev
-```
-
-4. Now you can visit http://localhost:3000/form/latest/docs/overview in the browser and see the changes you make in `tanstack/form/docs`.
-
-> [!NOTE]
-> The updated pages need to be manually reloaded in the browser.
-
-> [!WARNING]
-> You will need to update the `docs/config.json` file (in the project's repo) if you add a new doc page!
+Stay tuned for the latest updates and enhancements!
