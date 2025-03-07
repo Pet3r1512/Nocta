@@ -19,3 +19,21 @@ In the future, there will be a version where you must sign in to save your sleep
 Additionally, there will be a premium version, where Nocta offers features that can predict potential health risks and provide a better sleep plan based on your previous sleep quality, duration, age, or occupation.
 
 Stay tuned for the latest updates and enhancements!
+
+## Developers section
+
+### Tech stacks
+
+<strong>Front End</strong>:
+
+- Tanstack Start
+- Tailwind CSS
+- ShadCN
+- Pretiier
+
+<strong>Back End</strong>:
+
+- Hono
+- TypeScript
+- tRPC
+- AWS
