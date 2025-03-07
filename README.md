@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/Pet3r1512/Nocta">
-    <img src="public/images/logos/Logo_full.png" alt="Logo" width="278.7" height="80">
+    <img src="public/images/logo/Logo_full.png" alt="Logo" width="278.7" height="80">
   </a>
 
 <!-- <div align="center"> <a href="https://github.com/Pet3r1512/DevIniter_CLI/releases">
