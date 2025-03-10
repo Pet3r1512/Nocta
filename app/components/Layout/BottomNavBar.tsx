@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 interface Section {
   icon: ReactNode;
   name: string;
+  href: string;
 }
 
 const ICON_SIZE = 20;
