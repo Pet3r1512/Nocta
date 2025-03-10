@@ -33,10 +33,9 @@ export default function BottomNavBar() {
     <section className="dark:bg-black bg-white shadow-2xl py-1.5 w-full fixed bottom-0 flex items-center justify-center gap-x-5">
       {sections.map((section, index) => {
         return (
-          <div key={index} className="flex flex-col gap-y-2 items-center">
             {section.icon}
             <p className="font-semibold text-xs md:text-sm">{section.name}</p>
-          </div>
+          </a>
         );
       })}
     </section>
