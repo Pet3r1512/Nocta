@@ -15,14 +15,17 @@ export default function BottomNavBar() {
     {
       icon: <Bed size={ICON_SIZE} strokeWidth={ICON_STROKE} />,
       name: "Sleep",
+      href: "/",
     },
     {
       icon: <ChartPie size={ICON_SIZE} strokeWidth={ICON_STROKE} />,
       name: "Analytics",
+      href: "/analytics",
     },
     {
       icon: <Settings size={ICON_SIZE} strokeWidth={ICON_STROKE} />,
       name: "Settings",
+      href: "/settings",
     },
   ];
 
