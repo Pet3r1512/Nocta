@@ -19,13 +19,6 @@ export default function SleepTrackerClock() {
         {/* Sleep duration arc */}
         <div className="absolute w-full h-full rounded-full border-[12.5px] border-transparent border-r-primary border-t-primary transform rotate-[135deg]"></div>
 
-        {/* Bedtime and Alarm Icons */}
-        <div className="absolute -top-3 right-5 bg-gray-600 p-1 size-5 flex items-center justify-center rounded-full text-xs">
-          🌙
-        </div>
-        <div className="absolute -bottom-3 left-5 bg-yellow-500 p-1 size-5 flex items-center justify-center rounded-full text-xs">
-          ☀️
-        </div>
       </div>
 
       {/* Bedtime & Alarm */}
