@@ -19,7 +19,8 @@ export default function SleepTrackerClock() {
     <div className="flex flex-col items-center justify-between min-h-[80dvh]">
       {/* Clock UI */}
       <div className="relative mt-6 w-60 h-60 flex items-center justify-center">
-        <div className="absolute w-full h-full border-[10px] border-gray-800 rounded-full"></div>
+        {/* Clock Face */}
+        <div className="absolute w-full h-full border-[10px] border-primary rounded-full"></div>
 
         {/* Time indicators */}
         <div className="absolute top-3.5 text-lg font-bold">12</div>
@@ -27,9 +28,22 @@ export default function SleepTrackerClock() {
         <div className="absolute right-3.5 text-lg font-bold">3</div>
         <div className="absolute left-3.5 text-lg font-bold">9</div>
 
-        {/* Sleep duration arc */}
-        <div className="absolute w-full h-full rounded-full border-[12.5px] border-transparent border-r-primary border-t-primary transform rotate-[135deg]"></div>
+        {/* Clock Hands */}
+        <div
+          className="absolute w-1 h-12 bg-primary origin-center"
+          style={{
+            transform: `rotate(${bedtimeHourAngle}deg) translateY(-30px)`,
+          }}
+        />
+        <div
+          className="absolute w-1 h-20 bg-gray-400 origin-center"
+          style={{
+            transform: `rotate(${bedtimeMinuteAngle}deg) translateY(-35px)`,
+          }}
+        />
 
+        {/* Center Dot */}
+        <div className="absolute w-3 h-3 bg-black rounded-full"></div>
       </div>
 
       {/* Bedtime & Alarm */}
