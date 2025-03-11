@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Logo from "~/components/Layout/Logo";
-import SleepTrackerClock from "~/components/Sleep/SleepTracker";
+import SleepTrackerClock from "~/components/Sleep/SleepTrackerClock";
 
 export const Route = createFileRoute("/")({
   component: Home,
