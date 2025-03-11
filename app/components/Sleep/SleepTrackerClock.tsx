@@ -2,7 +2,18 @@ import { useState } from "react";
 
 export default function SleepTrackerClock() {
   const [bedtime, setBedtime] = useState("01:55");
-  const [alarm, setAlarm] = useState("08:25-08:55");
+  const [alarm, setAlarm] = useState("08:25");
+
+  const parseTime = (time: string) => {
+    const [h, m] = time.split(":").map(Number);
+    return { hours: h, minutes: m };
+  };
+
+  const { hours: bedtimeHours, minutes: bedtimeMinutes } = parseTime(bedtime);
+  const { hours: alarmHours, minutes: alarmMinutes } = parseTime(alarm);
+
+  const bedtimeHourAngle = (bedtimeHours / 12) * 30 + bedtimeMinutes * 0.5; // 30° per hour, 0.5° per minute
+  const bedtimeMinuteAngle = bedtimeMinutes * 6; // 6° per minute
 
   return (
     <div className="flex flex-col items-center justify-between min-h-[80dvh]">
