@@ -11,10 +11,10 @@ export default function SleepTrackerClock() {
         <div className="absolute w-full h-full border-[10px] border-gray-800 rounded-full"></div>
 
         {/* Time indicators */}
-        <div className="absolute top-5 text-lg font-bold">0</div>
-        <div className="absolute bottom-5 text-lg font-bold">12</div>
-        <div className="absolute right-5 text-lg font-bold">6</div>
-        <div className="absolute left-5 text-lg font-bold">18</div>
+        <div className="absolute top-3.5 text-lg font-bold">12</div>
+        <div className="absolute bottom-3.5 text-lg font-bold">6</div>
+        <div className="absolute right-3.5 text-lg font-bold">3</div>
+        <div className="absolute left-3.5 text-lg font-bold">9</div>
 
         {/* Sleep duration arc */}
         <div className="absolute w-full h-full rounded-full border-[12.5px] border-transparent border-r-primary border-t-primary transform rotate-[135deg]"></div>
