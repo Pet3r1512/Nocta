@@ -44,15 +44,6 @@ export default function SleepTrackerClock() {
       <button className="mt-6 w-64 py-3 bg-white text-black font-semibold rounded-lg">
         Sleep Now
       </button>
-
-      {/* Bottom Navigation */}
-      <div className="fixed bottom-0 w-full bg-black flex justify-around py-4 text-gray-400">
-        <span className="text-white">🏠 Sleep</span>
-        <span>🔍 Discover</span>
-        <span>📅 Daily</span>
-        <span>📊 Statistics</span>
-        <span>👤 Profile</span>
-      </div>
     </div>
   );
 }
