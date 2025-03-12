@@ -25,7 +25,7 @@ export default function WakeupChoice({ time }: { time: string }) {
       <DrawerTrigger className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-lg px-1.5 py-0.5">
         Choose
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="dark:bg-black bg-white !w-[100vw]">
         <DrawerHeader>
           <DrawerClose className="w-fit">
             <Button variant="link">{">>"}</Button>
