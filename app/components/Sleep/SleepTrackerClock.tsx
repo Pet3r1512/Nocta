@@ -53,20 +53,20 @@ export default function SleepTrackerClock() {
 
         {/* Clock Hands */}
         <div
-          className="absolute w-1 h-12 bg-primary origin-center"
+          className="absolute bottom-[50%] w-1 h-16 bg-primary origin-bottom transition-transform duration-500"
           style={{
-            transform: `rotate(${bedtimeHourAngle}deg) translateY(-30px)`,
+            transform: `rotate(${bedtimeHourAngle}deg)`,
           }}
         />
         <div
-          className="absolute w-1 h-20 bg-gray-400 origin-center"
+          className="absolute bottom-[50%] w-1 h-24 bg-gray-400 origin-bottom transition-transform duration-500"
           style={{
-            transform: `rotate(${bedtimeMinuteAngle}deg) translateY(-35px)`,
+            transform: `rotate(${bedtimeMinuteAngle}deg)`,
           }}
         />
 
         {/* Center Dot */}
-        <div className="absolute w-3 h-3 bg-black rounded-full"></div>
+        <div className="absolute w-4 h-4 dark:bg-white bg-black rounded-full"></div>
       </div>
 
       {/* Bedtime & Alarm */}
