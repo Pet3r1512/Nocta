@@ -45,7 +45,7 @@ export default function WakeupChoice({ time }: { time: string }) {
             }
             showGradients={true}
             enableArrowNavigation={true}
-            displayScrollbar={true}
+            displayScrollbar={false}
             initialSelectedIndex={parseInt(time.split(":")[0], 10)}
           />
           <AnimatedList
@@ -55,7 +55,7 @@ export default function WakeupChoice({ time }: { time: string }) {
             }
             showGradients={true}
             enableArrowNavigation={true}
-            displayScrollbar={true}
+            displayScrollbar={false}
             initialSelectedIndex={parseInt(time.split(":")[1], 10)}
           />
         </section>
