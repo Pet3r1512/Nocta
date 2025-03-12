@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import WakeupChoice from "./WakeupChoice";
 
 export default function SleepTrackerClock() {
   const [bedtime, setBedtime] = useState(() => {
@@ -76,8 +77,8 @@ export default function SleepTrackerClock() {
           <span>{bedtime}</span>
         </div>
         <div className="flex justify-between text-lg">
-          <span className="text-gray-400">Alarm</span>
-          <span>{alarm}</span>
+          <span className="text-gray-400">Wakeup</span>
+          <WakeupChoice />
         </div>
       </div>
 
