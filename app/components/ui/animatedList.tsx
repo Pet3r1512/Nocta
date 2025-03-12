@@ -182,7 +182,7 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
           displayScrollbar
             ? "[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-track]:bg-[#060606] [&::-webkit-scrollbar-thumb]:bg-[#222] [&::-webkit-scrollbar-thumb]:rounded-[4px]"
             : "scrollbar-hide"
-        }`}
+        } dark:bg-black bg-white dark:text-white text-black`}
         onScroll={handleScroll}
         style={{
           scrollbarWidth: "thin",
@@ -203,11 +203,11 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
             }}
           >
             <div
-              className={`p-4 bg-[#111] rounded-lg ${
+              className={`p-4 dark:bg-[#111] dark:text-white bg-white text-black rounded-lg ${
                 selectedIndex === index ? "!bg-primary" : ""
               } ${itemClassName}`}
             >
-              <p className="text-white m-0 text-center">{item}</p>
+              <p className="m-0 text-center">{item}</p>
             </div>
           </AnimatedItem>
         ))}
@@ -215,11 +215,11 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
       {showGradients && (
         <>
           <div
-            className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-[#060606] to-transparent pointer-events-none transition-opacity duration-300 ease"
+            className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b dark:from-black from-white to-transparent pointer-events-none transition-opacity duration-300 ease"
             style={{ opacity: topGradientOpacity }}
           ></div>
           <div
-            className="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-[#060606] to-transparent pointer-events-none transition-opacity duration-300 ease"
+            className="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t dark:from-black from-white to-transparent pointer-events-none transition-opacity duration-300 ease"
             style={{ opacity: bottomGradientOpacity }}
           ></div>
         </>
