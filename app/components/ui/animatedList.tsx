@@ -88,6 +88,14 @@ const AnimatedList: React.FC<AnimatedListProps> = ({
   const handleScroll = (e: UIEvent<HTMLDivElement>) => {
     const { scrollTop, scrollHeight, clientHeight } =
       e.target as HTMLDivElement;
+
+    // Handle continuous scrolling
+    if (scrollTop + clientHeight >= scrollHeight) {
+      (e.target as HTMLDivElement).scrollTop = 1; // Scroll to the top
+    } else if (scrollTop === 0) {
+      (e.target as HTMLDivElement).scrollTop = scrollHeight - clientHeight - 1; // Scroll to the bottom
+    }
+
     setTopGradientOpacity(Math.min(scrollTop / 50, 1));
     const bottomDistance = scrollHeight - (scrollTop + clientHeight);
     setBottomGradientOpacity(
