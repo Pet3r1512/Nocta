@@ -1,8 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SleepTrackerClock() {
-  const [bedtime, setBedtime] = useState("01:55");
+  const [bedtime, setBedtime] = useState(() => {
+    const now = new Date();
+    return `${now.getHours().toString().padStart(2, "0")}:${now
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}`;
+  });
+
   const [alarm, setAlarm] = useState("08:25");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setBedtime(
+        `${now.getHours().toString().padStart(2, "0")}:${now
+          .getMinutes()
+          .toString()
+          .padStart(2, "0")}`
+      );
+    };
+
+    updateTime(); // Set initial time
+    const interval = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
 
   const parseTime = (time: string) => {
     const [h, m] = time.split(":").map(Number);
