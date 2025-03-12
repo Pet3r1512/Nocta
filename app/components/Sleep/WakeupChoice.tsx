@@ -13,7 +13,7 @@ import { Button } from "../ui/button";
 export default function WakeupChoice() {
   return (
     <Drawer direction="right">
-      <DrawerTrigger className="bg-black dark:bg-white text-white dark:text-black rounded-2xl px-1.5 py-0.5">
+      <DrawerTrigger className="bg-black dark:bg-white text-white dark:text-black text-sm rounded-lg px-1.5 py-0.5">
         Choose
       </DrawerTrigger>
       <DrawerContent>
