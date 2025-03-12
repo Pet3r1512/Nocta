@@ -1,8 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SleepTrackerClock() {
-  const [bedtime, setBedtime] = useState("01:55");
+  const [bedtime, setBedtime] = useState(() => {
+    const now = new Date();
+    return `${now.getHours().toString().padStart(2, "0")}:${now
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}`;
+  });
+
   const [alarm, setAlarm] = useState("08:25");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setBedtime(
+        `${now.getHours().toString().padStart(2, "0")}:${now
+          .getMinutes()
+          .toString()
+          .padStart(2, "0")}`
+      );
+    };
+
+    updateTime(); // Set initial time
+    const interval = setInterval(updateTime, 1000); // Update every second
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
 
   const parseTime = (time: string) => {
     const [h, m] = time.split(":").map(Number);
@@ -10,10 +34,9 @@ export default function SleepTrackerClock() {
   };
 
   const { hours: bedtimeHours, minutes: bedtimeMinutes } = parseTime(bedtime);
-  const { hours: alarmHours, minutes: alarmMinutes } = parseTime(alarm);
 
-  const bedtimeHourAngle = (bedtimeHours / 12) * 30 + bedtimeMinutes * 0.5; // 30° per hour, 0.5° per minute
-  const bedtimeMinuteAngle = bedtimeMinutes * 6; // 6° per minute
+  const bedtimeHourAngle = (bedtimeHours % 12) * 30 + bedtimeMinutes * 0.5;
+  const bedtimeMinuteAngle = bedtimeMinutes * 6;
 
   return (
     <div className="flex flex-col items-center justify-between min-h-[80dvh]">
@@ -30,20 +53,20 @@ export default function SleepTrackerClock() {
 
         {/* Clock Hands */}
         <div
-          className="absolute w-1 h-12 bg-primary origin-center"
+          className="absolute bottom-[50%] w-1 h-16 bg-primary origin-bottom transition-transform duration-500"
           style={{
-            transform: `rotate(${bedtimeHourAngle}deg) translateY(-30px)`,
+            transform: `rotate(${bedtimeHourAngle}deg)`,
           }}
         />
         <div
-          className="absolute w-1 h-20 bg-gray-400 origin-center"
+          className="absolute bottom-[50%] w-1 h-24 bg-gray-400 origin-bottom transition-transform duration-500"
           style={{
-            transform: `rotate(${bedtimeMinuteAngle}deg) translateY(-35px)`,
+            transform: `rotate(${bedtimeMinuteAngle}deg)`,
           }}
         />
 
         {/* Center Dot */}
-        <div className="absolute w-3 h-3 bg-black rounded-full"></div>
+        <div className="absolute w-4 h-4 dark:bg-white bg-black rounded-full"></div>
       </div>
 
       {/* Bedtime & Alarm */}
