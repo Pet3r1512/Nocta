@@ -9,16 +9,21 @@
     "start": "vinxi start"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-slot": "^1.1.2",
     "@tanstack/react-router": "^1.112.18",
     "@tanstack/react-start": "^1.112.18",
     "@tanstack/router-devtools": "^1.112.18",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.479.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "redaxios": "^0.5.1",
     "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7",
     "unenv": "^1.10.0",
+    "vaul": "^1.1.2",
     "vinxi": "0.5.3"
   },
   "devDependencies": {
