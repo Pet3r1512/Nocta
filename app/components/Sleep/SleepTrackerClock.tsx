@@ -10,10 +10,9 @@ export default function SleepTrackerClock() {
   };
 
   const { hours: bedtimeHours, minutes: bedtimeMinutes } = parseTime(bedtime);
-  const { hours: alarmHours, minutes: alarmMinutes } = parseTime(alarm);
 
-  const bedtimeHourAngle = (bedtimeHours / 12) * 30 + bedtimeMinutes * 0.5; // 30° per hour, 0.5° per minute
-  const bedtimeMinuteAngle = bedtimeMinutes * 6; // 6° per minute
+  const bedtimeHourAngle = (bedtimeHours % 12) * 30 + bedtimeMinutes * 0.5;
+  const bedtimeMinuteAngle = bedtimeMinutes * 6;
 
   return (
     <div className="flex flex-col items-center justify-between min-h-[80dvh]">
