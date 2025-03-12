@@ -11,32 +11,9 @@ import {
 import { Button } from "../ui/button";
 import AnimatedList from "../ui/animatedList";
 
-const HOURS = [
-  "00",
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-  "13",
-  "14",
-  "15",
-  "16",
-  "17",
-  "18",
-  "19",
-  "20",
-  "21",
-  "22",
-  "23",
-];
+const HOURS = Array.from({ length: 24 }, (_, i) =>
+  i.toString().padStart(2, "0")
+);
 
 const MINUTES = Array.from({ length: 60 }, (_, i) =>
   i.toString().padStart(2, "0")
