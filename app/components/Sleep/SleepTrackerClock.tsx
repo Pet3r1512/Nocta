@@ -78,7 +78,7 @@ export default function SleepTrackerClock() {
         </div>
         <div className="flex justify-between text-lg">
           <span className="text-gray-400">Wakeup</span>
-          <WakeupChoice />
+          <WakeupChoice time={bedtime} />
         </div>
       </div>
 
