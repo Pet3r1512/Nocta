@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Hero from "~/components/Layout/Hero";
 import Logo from "~/components/Layout/Logo";
-import SleepTrackerClock from "~/components/Sleep/SleepTrackerClock";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -13,7 +13,7 @@ function Home() {
         <Logo />
         <h1 className="text-2xl text-primary font-bold">Nocta</h1>
       </div>
-      <SleepTrackerClock />
+      <Hero />
     </div>
   );
 }
