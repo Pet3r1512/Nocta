@@ -11,6 +11,11 @@ export default function SleepOption({
 }: {
   sleepOption: SleepOption;
 }) {
+  const colorMap: Record<string, string> = {
+    Ideal: "bg-green-600",
+    Good: "bg-yellow-500",
+    Okay: "bg-orange-600",
+  };
   return (
     <div className="flex items-center gap-x-5 w-full bg-primary/50 rounded-2xl px-5 py-3.5 lg:hover:bg-primary/80 transition-all duration-150 ease-linear">
       <Bed />
