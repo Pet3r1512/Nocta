@@ -23,7 +23,11 @@ export default function SleepOption({
         <p className="text-lg lg:text-2xl font-bold">{sleepOption.time}</p>
         <p className="text-gray-400">{`${sleepOption.cycles} sleep cycles • 9h 15m`}</p>
       </div>
-      <button className="bg-green-600 rounded-2xl px-2 py-0.5">
+      <button
+        className={`rounded-2xl px-2 py-0.5 font-semibold pb-1 ${
+          colorMap[sleepOption.type]
+        }`}
+      >
         {sleepOption.type}
       </button>
     </div>
