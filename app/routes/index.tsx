@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="p-2">
+    <div className="p-5 mb-5">
       <div className="flex items-center">
         <Logo />
         <h1 className="text-2xl text-primary font-bold">Nocta</h1>
