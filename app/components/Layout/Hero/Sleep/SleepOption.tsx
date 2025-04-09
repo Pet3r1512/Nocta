@@ -19,7 +19,7 @@ export default function SleepOption({
   return (
     <div className="group flex items-center gap-x-5 w-full bg-primary/60 rounded-2xl px-5 py-3.5 lg:hover:bg-primary/80 transition-all duration-150 ease-linear">
       <Bed />
-      <div className="space-y-2.5 flex-1">
+      <div className="space-y-1 md:space-y-2.5 flex-1">
         <p className="text-lg lg:text-2xl font-bold">{sleepOption.time}</p>
         <p className="text-gray-300 lg:group-hover:text-white transition-all duration-150 ease-linear">{`${sleepOption.cycles} sleep cycles • 9h 15m`}</p>
       </div>
