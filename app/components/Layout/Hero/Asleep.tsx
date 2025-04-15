@@ -1,11 +1,50 @@
 import { Moon } from "lucide-react";
 import SleepOption from "./Sleep/SleepOption";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import type { SleepOption as SleepOptionType } from "./Sleep/SleepOption";
+
+const SLEEP_CYCLE_MINUTES = 90;
+const FALL_ASLEEP_MINUTES = 15;
+
+function calculateSleepTimes(wakeUpTime: string): SleepOptionType[] {
+  const [hours, minutes] = wakeUpTime.split(":").map(Number);
+  const wake = new Date();
+  wake.setHours(hours, minutes, 0, 0);
+
+  const cycles: [6, 5, 4] = [6, 5, 4];
+
+  return cycles.map((cycle) => {
+    const totalSleepMinutes = cycle * SLEEP_CYCLE_MINUTES + FALL_ASLEEP_MINUTES;
+    const sleepTime = new Date(wake.getTime() - totalSleepMinutes * 60000);
+
+    const timeString = sleepTime.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    const type: SleepOptionType["type"] =
+      cycle === 6 ? "Ideal" : cycle === 5 ? "Good" : "Okay";
+
+    return {
+      time: timeString,
+      cycles: cycle,
+      type,
+    };
+  });
+}
 
 export default function Asleep({ wakeUpTime }: { wakeUpTime: string }) {
+  const [sleepOptions, setSleepOptions] = useState<SleepOptionType[]>([]);
+
   useEffect(() => {
-    console.log(wakeUpTime);
+    if (wakeUpTime) {
+      const calculated = calculateSleepTimes(wakeUpTime);
+      setSleepOptions(calculated);
+    }
   }, [wakeUpTime]);
+
   return (
     <section className="space-y-5">
       <div className="flex items-center gap-x-2">
