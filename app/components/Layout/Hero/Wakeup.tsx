@@ -1,6 +1,13 @@
 import { Sun } from "lucide-react";
 import TimeSelector from "./TimeSelector";
 
+export default function Wakeup({
+  wakeUpTime,
+  setWakeUpTime,
+}: {
+  wakeUpTime: string;
+  setWakeUpTime: React.Dispatch<React.SetStateAction<string>>;
+}) {
   return (
     <section className="space-y-5">
       <div className="flex items-center gap-x-2">
