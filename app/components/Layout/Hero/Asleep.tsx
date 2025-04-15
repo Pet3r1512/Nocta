@@ -1,7 +1,11 @@
 import { Moon } from "lucide-react";
 import SleepOption from "./Sleep/SleepOption";
+import { useEffect } from "react";
 
-export default function Asleep() {
+export default function Asleep({ wakeUpTime }: { wakeUpTime: string }) {
+  useEffect(() => {
+    console.log(wakeUpTime);
+  }, [wakeUpTime]);
   return (
     <section className="space-y-5">
       <div className="flex items-center gap-x-2">
