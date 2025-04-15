@@ -13,7 +13,7 @@ export default function SleepOption({
 }) {
   const colorMap: Record<string, string> = {
     Ideal: "bg-green-600",
-    Good: "bg-yellow-500",
+    Good: "bg-yellow-600/95",
     Okay: "bg-orange-600",
   };
   return (
