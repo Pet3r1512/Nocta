@@ -1,9 +1,5 @@
 import { Sun } from "lucide-react";
 import TimeSelector from "./TimeSelector";
-import { useState } from "react";
-
-export default function Wakeup() {
-  const [wakeUpTime, setWakeUpTime] = useState<string>("07:00");
 
   return (
     <section className="space-y-5">
