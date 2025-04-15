@@ -12,8 +12,8 @@ export default function Hero() {
       </h1>
 
       <div className="flex flex-col lg:flex-row lg:justify-center gap-x-5 gap-y-6 mb-16 w-full">
-        <Wakeup />
-        <Asleep />
+        <Wakeup wakeUpTime={wakeUpTime} setWakeUpTime={setWakeUpTime} />
+        <Asleep wakeUpTime={wakeUpTime} />
       </div>
     </section>
   );
