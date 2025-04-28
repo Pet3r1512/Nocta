@@ -1,12 +1,20 @@
-import React from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { ClockIcon } from "lucide-react";
+
 interface TimeSelectorProps {
   time: string;
   onChange: (value: string) => void;
 }
 
 const TimeSelector: React.FC<TimeSelectorProps> = ({ time, onChange }) => {
-  // Convert time string to hours and minutes
+  const [isIOS, setIsIOS] = useState(false);
+
+  React.useEffect(() => {
+    // Detect iOS browsers
+    const userAgent = window.navigator.userAgent;
+    setIsIOS(/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream);
+  }, []);
+
   const [hours, minutes] = time.split(":").map(Number);
   const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
