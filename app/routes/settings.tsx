@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import ThemeToggle from "~/components/Buttons/ThemeToggle";
 import Logo from "~/components/Layout/Logo";
 
 export const Route = createFileRoute("/settings")({
@@ -14,6 +15,7 @@ function RouteComponent() {
       </div>
       <p className="text-center font-semibold text-lg lg:text-2xl">
         Settings Page is coming soon!
+        <ThemeToggle />
       </p>
     </div>
   );
