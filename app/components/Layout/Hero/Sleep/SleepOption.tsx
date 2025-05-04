@@ -21,7 +21,7 @@ export default function SleepOption({
       <Bed />
       <div className="space-y-1 md:space-y-2.5 flex-1">
         <p className="text-lg lg:text-2xl font-bold">{sleepOption.time}</p>
-        <p className="text-gray-300 lg:group-hover:text-white transition-all duration-150 ease-linear">{`${sleepOption.cycles} sleep cycles • 9h 15m`}</p>
+        <p className="dark:text-gray-300 text-gray-700 lg:group-hover:text-white transition-all duration-150 ease-linear">{`${sleepOption.cycles} sleep cycles • 9h 15m`}</p>
       </div>
       <button
         className={`rounded-2xl px-2 py-0.5 font-semibold pb-1 ${
