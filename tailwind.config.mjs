@@ -11,6 +11,10 @@ export default {
           light: "#FFF2D7",
           medium: "#FFE0B5",
         },
+        background: {
+          dark: "#121212",
+          light: "#d2d2d2",
+        },
       },
     },
   },
