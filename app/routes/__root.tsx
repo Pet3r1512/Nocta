@@ -77,7 +77,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="relative">
+      <body className="relative lg:space-y-10 bg-white dark:bg-background-dark dark:text-white text-black">
         {/* Header here */}
         <Header />
         {children}
