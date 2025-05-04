@@ -20,7 +20,7 @@ export default function Wakeup({
           setWakeUpTime(time);
         }}
       />
-      <p className="text-gray-400 dark:text-gray-500">
+      <p className="text-gray-600 dark:text-gray-200">
         Select your desired wake-up time, and we'll calculate the best times to
         go to sleep.
       </p>

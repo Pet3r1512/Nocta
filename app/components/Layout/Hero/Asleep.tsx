@@ -64,7 +64,7 @@ export default function Asleep({ wakeUpTime }: { wakeUpTime: string }) {
         ))}
       </div>
 
-      <p className="text-gray-400 dark:text-gray-500">
+      <p className="text-gray-600 dark:text-gray-200">
         These times account for the average{" "}
         <span className="text-white">15 minutes</span> it takes to fall asleep.
       </p>
