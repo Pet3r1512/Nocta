@@ -46,12 +46,6 @@ function TimeSelector({ time, onChange }: TimeSelectorProps) {
           />
         )}
       </div>
-      <div className="flex items-center justify-center mt-2">
-        <div className="bg-primary/80 rounded-full py-3 px-8 text-center text-2xl font-bold">
-          {hours === 0 ? "12" : hours > 12 ? hours - 12 : hours}:
-          {minutes.toString().padStart(2, "0")} {hours >= 12 ? "PM" : "AM"}
-        </div>
-      </div>
     </div>
   );
 }
