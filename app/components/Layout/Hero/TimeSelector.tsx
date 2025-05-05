@@ -25,7 +25,7 @@ function TimeSelector({ time, onChange }: TimeSelectorProps) {
       <div className="relative">
         <ClockIcon
           size={20}
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/30"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/80 dark:text-white"
         />
         {isIOS ? (
           // Custom fallback for iOS
