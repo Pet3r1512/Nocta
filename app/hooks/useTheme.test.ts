@@ -60,4 +60,17 @@ describe("useTheme test", () => {
         expect(localStorage.getItem("theme")).toBe("dark")
         expect(mockClassList.toggle).toHaveBeenCalledWith("dark", true)
     })
+
+    it("should change from dark to light theme", () => {
+        localStorage.setItem("theme", "dark")
+        const { result } = renderHook(() => useTheme())
+
+        act(() => {
+            result.current.toggleTheme()
+        })
+
+        expect(result.current.theme).toBe("light")
+        expect(localStorage.getItem("theme")).toBe("light")
+        expect(mockClassList.toggle).toHaveBeenCalledWith("dark", false)
+    })
 })
