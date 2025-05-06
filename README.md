@@ -41,6 +41,7 @@ Stay tuned for the latest updates and enhancements!
 - Tailwind CSS
 - ShadCN
 - Pretiier
+- Vitest
 
 <strong>Back End</strong>:
 
