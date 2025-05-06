@@ -40,7 +40,7 @@ Stay tuned for the latest updates and enhancements!
 - Tanstack Start
 - Tailwind CSS
 - ShadCN
-- Pretiier
+- Prettier
 - Vitest
 
 <strong>Back End</strong>:
