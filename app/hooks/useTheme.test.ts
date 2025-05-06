@@ -32,6 +32,7 @@ describe("useTheme test", () => {
             configurable: true
         })
     })
+
     it("should initialize with saved theme from local storage", () => {
         localStorage.setItem("theme", "dark")
 
@@ -39,5 +40,12 @@ describe("useTheme test", () => {
 
         expect(result.current.theme).toBe("dark")
         expect(mockClassList.add).toHaveBeenCalledWith("dark")
+    })
+
+    it("should display default light theme if local storage has no saved theme", () => {
+        const { result } = renderHook(() => useTheme())
+
+        expect(result.current.theme).toBe("light")
+        expect(mockClassList.remove).toHaveBeenCalledWith("dark")
     })
 })
