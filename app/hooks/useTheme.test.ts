@@ -1,3 +1,8 @@
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { renderHook, act } from "@testing-library/react";
+import { useTheme } from "./useTheme";
+
+describe("useTheme test", () => {
     const mockClassList = {
         add: vi.fn(),
         remove: vi.fn(),
@@ -27,3 +32,12 @@
             configurable: true
         })
     })
+    it("should initialize with saved theme from local storage", () => {
+        localStorage.setItem("theme", "dark")
+
+        const { result } = renderHook(() => useTheme())
+
+        expect(result.current.theme).toBe("dark")
+        expect(mockClassList.add).toHaveBeenCalledWith("dark")
+    })
+})
