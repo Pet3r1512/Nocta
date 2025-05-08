@@ -3,10 +3,6 @@
     <img src="public/images/logo/Logo_full.png" alt="Logo" width="278.7" height="80">
   </a>
 
-<!-- <div align="center"> <a href="https://github.com/Pet3r1512/DevIniter_CLI/releases">
-    <img src="https://img.shields.io/github/v/release/Pet3r1512/DevIniter_CLI?style=flat" alt="GitHub Release">
-  </a> </div> -->
-
 </div>
 
 # Welcome to Nocta - Sleep Tracker and Monitor
@@ -14,6 +10,12 @@
 Our mission is to empower you to optimize your sleep, enhance your overall quality of life, and identify potential health risks at the earliest stage.
 
 As a developer or engineer, you spend a significant portion of your day coding, building, and fixing bugs. Therefore, you might underestimate the importance of sleep. Nocta is here to help you optimize your sleep and improve your overall well-being.
+
+# What is Sleep Cycle?
+
+A sleep cycle is a period during which your body progresses through different stages of sleep, from light sleep to deep sleep to REM sleep. Each cycle lasts approximately 90 minutes, and a healthy night's sleep consists of 4-6 complete cycles.
+
+Most adults need between 7-9 hours of sleep per night, which translates to about 4-6 complete sleep cycles. Our calculator recommends times for 4, 5, and 6 cycles.
 
 ## How does Nocta work?
 

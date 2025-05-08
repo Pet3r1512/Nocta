@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import SleepUnderstanding from "~/components/Docs";
 import Hero from "~/components/Layout/Hero";
 
 export const Route = createFileRoute("/")({
@@ -9,6 +10,7 @@ function Home() {
   return (
     <div className="p-5 md:px-14 lg:px-0 mb-5">
       <Hero />
+      <SleepUnderstanding />
     </div>
   );
 }
