@@ -3,10 +3,6 @@
     <img src="public/images/logo/Logo_full.png" alt="Logo" width="278.7" height="80">
   </a>
 
-<!-- <div align="center"> <a href="https://github.com/Pet3r1512/DevIniter_CLI/releases">
-    <img src="https://img.shields.io/github/v/release/Pet3r1512/DevIniter_CLI?style=flat" alt="GitHub Release">
-  </a> </div> -->
-
 </div>
 
 # Welcome to Nocta - Sleep Tracker and Monitor
