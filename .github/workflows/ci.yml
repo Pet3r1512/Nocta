@@ -21,9 +21,9 @@ jobs:
           cache: "pnpm"
 
       - run: pnpm install
+
       - run: pnpm build
 
-      - name: Install Playwright Browsers
-        uses: microsoft/playwright-github-actions@v1
+      - run: pnpm exec playwright install
 
       - run: pnpm test
