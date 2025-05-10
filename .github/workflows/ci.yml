@@ -22,5 +22,8 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build
-      - run: pnpm exec playwright install
+
+      - name: Install Playwright Browsers
+        uses: microsoft/playwright-github-actions@v1
+
       - run: pnpm test
