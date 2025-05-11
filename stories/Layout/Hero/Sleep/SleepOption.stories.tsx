@@ -37,4 +37,13 @@ export const GoodOption: Story = {
     },
   },
 };
+
+export const OkayOption: Story = {
+  args: {
+    sleepOption: {
+      time: "12:45 AM",
+      cycles: 4,
+      type: "Okay",
+    },
+  },
 };
