@@ -28,6 +28,12 @@ export const IdealOption: Story = {
       type: "Ideal",
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("Ideal")).toBeInTheDocument();
+  },
+};
+
 export const GoodOption: Story = {
   args: {
     sleepOption: {
@@ -35,6 +41,10 @@ export const GoodOption: Story = {
       cycles: 5,
       type: "Good",
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("Good")).toBeInTheDocument();
   },
 };
 
@@ -45,5 +55,9 @@ export const OkayOption: Story = {
       cycles: 4,
       type: "Okay",
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("Okay")).toBeInTheDocument();
   },
 };
