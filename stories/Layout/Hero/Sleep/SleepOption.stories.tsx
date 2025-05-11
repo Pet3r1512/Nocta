@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import SleepOption from "../../../../app/components/Layout/Hero/Sleep/SleepOption";
 import "../../../../app/styles/app.css";
+import { within } from "@testing-library/react";
+import { expect } from "@storybook/test";
 
 const meta: Meta<typeof SleepOption> = {
   title: "Sleep Option Component",
@@ -23,7 +25,7 @@ type Story = StoryObj<typeof SleepOption>;
 export const IdealOption: Story = {
   args: {
     sleepOption: {
-      time: "10:00 PM",
+      time: "09:45 PM",
       cycles: 6,
       type: "Ideal",
     },
