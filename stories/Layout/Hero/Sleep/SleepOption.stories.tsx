@@ -33,6 +33,8 @@ export const IdealOption: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("Ideal")).toBeInTheDocument();
+    const SleepInfo = canvas.getByTestId("sleep-info");
+    expect(SleepInfo).toHaveTextContent("6 sleep cycles • 9h");
   },
 };
 
@@ -47,6 +49,8 @@ export const GoodOption: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("Good")).toBeInTheDocument();
+    const SleepInfo = canvas.getByTestId("sleep-info");
+    expect(SleepInfo).toHaveTextContent("5 sleep cycles • 7h 30m");
   },
 };
 
@@ -61,5 +65,7 @@ export const OkayOption: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("Okay")).toBeInTheDocument();
+    const SleepInfo = canvas.getByTestId("sleep-info");
+    expect(SleepInfo).toHaveTextContent("4 sleep cycles • 6h");
   },
 };
