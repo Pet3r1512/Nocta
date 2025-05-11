@@ -28,4 +28,13 @@ export const IdealOption: Story = {
       type: "Ideal",
     },
   },
+export const GoodOption: Story = {
+  args: {
+    sleepOption: {
+      time: "11:15 PM",
+      cycles: 5,
+      type: "Good",
+    },
+  },
+};
 };
