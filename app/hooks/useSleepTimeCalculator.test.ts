@@ -8,17 +8,17 @@ describe("useSleepTimeCalculator test", () => {
         const { result } = renderHook(() => useSleepTimeCalculator())
         const sleepOptions: SleepOption[] = [
             {
-                time: "08:45 pm",
+                time: "08:45 PM",
                 cycles: 6,
                 type: "Ideal"
             },
             {
-                time: "10:15 pm",
+                time: "10:15 PM",
                 cycles: 5,
                 type: "Good"
             },
             {
-                time: "11:45 pm",
+                time: "11:45 PM",
                 cycles: 4,
                 type: "Okay"
             },
@@ -30,17 +30,17 @@ describe("useSleepTimeCalculator test", () => {
         const { result } = renderHook(() => useSleepTimeCalculator())
         const sleepOptions: SleepOption[] = [
             {
-                time: "10:15 pm",
+                time: "10:15 PM",
                 cycles: 6,
                 type: "Ideal"
             },
             {
-                time: "11:45 pm",
+                time: "11:45 PM",
                 cycles: 5,
                 type: "Good"
             },
             {
-                time: "01:15 am",
+                time: "01:15 AM",
                 cycles: 4,
                 type: "Okay"
             },
