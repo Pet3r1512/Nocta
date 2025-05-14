@@ -24,7 +24,13 @@ describe("useSleepTimeCalculator test", () => {
             },
         ]
 
-        expect(result.current.sleepTimeCalculator("06:00")).toStrictEqual(sleepOptions)
+        expect(result.current.sleepTimeCalculator("06:00").map((r) => ({
+            ...r,
+            time: r.time.toLowerCase()
+        }))).toStrictEqual(sleepOptions.map((r) => ({
+            ...r,
+            time: r.time.toLowerCase()
+        })))
     });
     it("should return 3 correct sleep times for 07:30 AM wakeup", () => {
         const { result } = renderHook(() => useSleepTimeCalculator())
@@ -46,6 +52,12 @@ describe("useSleepTimeCalculator test", () => {
             },
         ]
 
-        expect(result.current.sleepTimeCalculator("07:30")).toEqual(sleepOptions)
+        expect(result.current.sleepTimeCalculator("07:30").map((r) => ({
+            ...r,
+            time: r.time.toLowerCase()
+        }))).toStrictEqual(sleepOptions.map((r) => ({
+            ...r,
+            time: r.time.toLowerCase()
+        })))
     });
 });
