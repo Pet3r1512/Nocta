@@ -4,14 +4,19 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     coverage: {
-      // 👇 Add this
+      provider: "v8",
+      reporter: ["text"],
       exclude: [
+        "storybook-static/*",
+        "app/**/*.stories.tsx",
+        "app/**/*.{config,test}.{ts, js}",
+        "app/**/*.ts",
+        "app/components/ui/*",
+        "app/routeTree.gen.ts",
+        "__vitest_test__/**/*",
+        "*.config.js",
+        "*.config.ts",
         ...coverageConfigDefaults.exclude,
-        "**/.storybook/**",
-        // 👇 This pattern must align with the `stories` property of your `.storybook/main.ts` config
-        "**/*.stories.*",
-        // 👇 This pattern must align with the output directory of `storybook build`
-        "**/storybook-static/**",
       ],
     },
   },
