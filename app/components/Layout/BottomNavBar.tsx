@@ -43,9 +43,7 @@ export default function BottomNavBar({ pathname }: { pathname: string }) {
             key={index}
             className={cn(
               "flex flex-col gap-y-2 items-center",
-              route.latestLocation.pathname == section.href
-                ? "opacity-100"
-                : "opacity-65"
+              currentPathname == section.href ? "opacity-100" : "opacity-65"
             )}
           >
             {section.icon}
