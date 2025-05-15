@@ -1,7 +1,7 @@
 import { useRouter } from "@tanstack/react-router";
 import { Bed, ChartPie, Settings } from "lucide-react";
 import { ReactNode } from "react";
-import { cn } from "~/utils/cn";
+import { cn } from "../../utils/cn";
 
 interface Section {
   icon: ReactNode;
