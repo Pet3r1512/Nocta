@@ -8,6 +8,7 @@
     "build": "vinxi build",
     "start": "vinxi start",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
