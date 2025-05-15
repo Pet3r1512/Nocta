@@ -12,8 +12,9 @@ interface Section {
 const ICON_SIZE = 20;
 const ICON_STROKE = 2.5;
 
-export default function BottomNavBar() {
+export default function BottomNavBar({ pathname }: { pathname: string }) {
   const route = useRouter();
+  const currentPathname = pathname || route.latestLocation.pathname;
 
   const sections: Section[] = [
     {
