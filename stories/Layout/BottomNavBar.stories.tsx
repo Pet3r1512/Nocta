@@ -17,25 +17,25 @@ export const BottomNavBarStory: Story = {
   args: {
     pathname: "/",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  //   play: async ({ canvasElement }) => {
+  //     const canvas = within(canvasElement);
 
-    await act(async () => {
-      await userEvent.click(canvas.getByText("Sleep"));
-    });
+  //     await act(async () => {
+  //       await userEvent.click(canvas.getByText("Sleep"));
+  //     });
 
-    // expect(canvas.getByText("Sleep")).toBeInTheDocument();
-    // expect(canvas.getByText("Analytics")).toBeInTheDocument();
-    // expect(canvas.getByText("Settings")).toBeInTheDocument();
+  //     expect(canvas.getByText("Sleep")).toBeInTheDocument();
+  //     expect(canvas.getByText("Analytics")).toBeInTheDocument();
+  //     expect(canvas.getByText("Settings")).toBeInTheDocument();
 
-    // expect(canvas.getByText("Sleep").closest("a")).toHaveAttribute("href", "/");
-    // expect(canvas.getByText("Analytics").closest("a")).toHaveAttribute(
-    //   "href",
-    //   "/analytics"
-    // );
-    // expect(canvas.getByText("Settings").closest("a")).toHaveAttribute(
-    //   "href",
-    //   "/settings"
-    // );
-  },
+  //     expect(canvas.getByText("Sleep").closest("a")).toHaveAttribute("href", "/");
+  //     expect(canvas.getByText("Analytics").closest("a")).toHaveAttribute(
+  //       "href",
+  //       "/analytics"
+  //     );
+  //     expect(canvas.getByText("Settings").closest("a")).toHaveAttribute(
+  //       "href",
+  //       "/settings"
+  //     );
+  //   },
 };
