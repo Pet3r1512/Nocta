@@ -1,3 +1,4 @@
+import path from "path";
 import { defineConfig, coverageConfigDefaults } from "vitest/config";
 
 export default defineConfig({
@@ -18,6 +19,11 @@ export default defineConfig({
         "*.config.ts",
         ...coverageConfigDefaults.exclude,
       ],
+    },
+  },
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, 'app'), // adjust to your actual `src` folder path
     },
   },
 });
