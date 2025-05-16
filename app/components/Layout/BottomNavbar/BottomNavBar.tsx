@@ -1,7 +1,6 @@
 import { useRouter } from "@tanstack/react-router";
-import { Bed, ChartPie, Settings } from "lucide-react";
 import { ReactNode } from "react";
-import { cn } from "../../utils/cn";
+import { cn } from "~/utils/cn";
 
 interface Section {
   icon: ReactNode;
@@ -9,31 +8,13 @@ interface Section {
   href: string;
 }
 
-const ICON_SIZE = 20;
-const ICON_STROKE = 2.5;
-
-export default function BottomNavBar({ pathname }: { pathname: string }) {
-  const route = useRouter();
-  const currentPathname = pathname || route.latestLocation.pathname;
-
-  const sections: Section[] = [
-    {
-      icon: <Bed size={ICON_SIZE} strokeWidth={ICON_STROKE} />,
-      name: "Sleep",
-      href: "/",
-    },
-    {
-      icon: <ChartPie size={ICON_SIZE} strokeWidth={ICON_STROKE} />,
-      name: "Analytics",
-      href: "/analytics",
-    },
-    {
-      icon: <Settings size={ICON_SIZE} strokeWidth={ICON_STROKE} />,
-      name: "Settings",
-      href: "/settings",
-    },
-  ];
-
+export default function BottomNavBar({
+  sections,
+  currentPathname,
+}: {
+  sections: Section[];
+  currentPathname: string;
+}) {
   return (
     <section className="dark:bg-black bg-white shadow-2xl py-1.5 w-full fixed bottom-0 flex items-center justify-center gap-x-5">
       {sections.map((section, index) => {
