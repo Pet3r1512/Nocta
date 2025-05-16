@@ -1,14 +1,13 @@
 import {
   HeadContent,
-  Link,
   Outlet,
   Scripts,
   createRootRoute,
+  useRouter,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import * as React from "react";
 import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
-import BottomNavBar from "~/components/Layout/BottomNavBar";
+import BottomNavbarContainer from "~/components/Layout/BottomNavbar/BottomNavbarContainer";
 import Header from "~/components/Layout/Header";
 import { NotFound } from "~/components/NotFound";
 import appCss from "~/styles/app.css?url";
@@ -72,6 +71,7 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const route = useRouter();
   return (
     <html>
       <head>
@@ -81,7 +81,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         {/* Header here */}
         <Header />
         {children}
-        <BottomNavBar />
+        <BottomNavbarContainer pathname={route.latestLocation.pathname} />
         {/* <TanStackRouterDevtools position="bottom-right" /> */}
         <Scripts />
       </body>
