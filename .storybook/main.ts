@@ -1,9 +1,15 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from "module";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+
+function getAbsolutePath(value: string): any {
+  return path.join(__dirname, require.resolve(path.join(value, "package.json")));
+}
 
 const config: StorybookConfig = {
   framework: {
@@ -12,9 +18,9 @@ const config: StorybookConfig = {
   },
   stories: ['../app/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-interactions'),
   ],
   viteFinal: (config) => {
     config.resolve = config.resolve || {};
