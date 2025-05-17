@@ -1,0 +1,12 @@
+secrets:
+  server:
+    container_name: nocta_container
+    build:
+      context: ./
+      dockerfile: dev.dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./:/app
+    ports:
+      - 9000: 9000
