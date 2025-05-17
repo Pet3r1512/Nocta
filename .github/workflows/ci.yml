@@ -26,4 +26,8 @@ jobs:
 
       - run: pnpm exec playwright install
 
+      - run: pnpm exec storybook build
+
+      - run: pnpm exec storybook test
+
       - run: pnpm test
