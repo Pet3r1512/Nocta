@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon, ClockIcon } from "lucide-react";
+import { useTimeSelector } from "~/hooks/useTimeSelector";
 
 export default function TimeSelector({
   time,
@@ -8,34 +9,17 @@ export default function TimeSelector({
   time: string;
   onChange: (value: string) => void;
 }) {
-  // Parse initial time
-  const [hours, setHours] = useState(parseInt(time.split(":")[0]));
-  const [minutes, setMinutes] = useState(parseInt(time.split(":")[1]));
-  const [isPM, setIsPM] = useState(hours >= 12);
-  // Update parent when time changes
-  useEffect(() => {
-    const newHours = (isPM ? (hours % 12) + 12 : hours % 12 || 12) % 24;
-    onChange(
-      `${newHours.toString().padStart(2, "0")}:${minutes
-        .toString()
-        .padStart(2, "0")}`
-    );
-  }, [hours, minutes, isPM, onChange]);
-  const incrementHours = () => {
-    setHours((prev) => (prev % 12) + 1);
-  };
-  const decrementHours = () => {
-    setHours((prev) => ((prev - 2 + 12) % 12) + 1);
-  };
-  const incrementMinutes = () => {
-    setMinutes((prev) => (prev + 5) % 60);
-  };
-  const decrementMinutes = () => {
-    setMinutes((prev) => (prev - 5 + 60) % 60);
-  };
-  const toggleAMPM = () => {
-    setIsPM((prev) => !prev);
-  };
+  const {
+    hours,
+    minutes,
+    isPM,
+    incrementHours,
+    decrementHours,
+    incrementMinutes,
+    decrementMinutes,
+    toggleAMPM,
+  } = useTimeSelector(time, onChange);
+
   return (
     <div className="flex flex-col gap-4">
       <div className="grid grid-cols-3 gap-4">
