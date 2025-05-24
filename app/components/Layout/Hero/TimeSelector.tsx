@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { ChevronUpIcon, ChevronDownIcon, ClockIcon } from "lucide-react";
 import { useTimeSelector } from "~/hooks/useTimeSelector";
 
