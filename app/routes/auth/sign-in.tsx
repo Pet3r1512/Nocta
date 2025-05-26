@@ -17,6 +17,7 @@ function RouteComponent() {
         appearance={{
           baseTheme: theme === "dark" ? dark : undefined,
         }}
+        signUpUrl="/auth/sign-up"
       />
     </section>
   );
