@@ -14,6 +14,7 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as SettingsImport } from './routes/settings'
 import { Route as AnalyticsImport } from './routes/analytics'
 import { Route as IndexImport } from './routes/index'
+import { Route as AuthSignInImport } from './routes/auth/sign-in'
 
 // Create/Update Routes
 
@@ -32,6 +33,12 @@ const AnalyticsRoute = AnalyticsImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthSignInRoute = AuthSignInImport.update({
+  id: '/auth/sign-in',
+  path: '/auth/sign-in',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsImport
       parentRoute: typeof rootRoute
     }
+    '/auth/sign-in': {
+      id: '/auth/sign-in'
+      path: '/auth/sign-in'
+      fullPath: '/auth/sign-in'
+      preLoaderRoute: typeof AuthSignInImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -69,12 +83,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/analytics': typeof AnalyticsRoute
   '/settings': typeof SettingsRoute
+  '/auth/sign-in': typeof AuthSignInRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/analytics': typeof AnalyticsRoute
   '/settings': typeof SettingsRoute
+  '/auth/sign-in': typeof AuthSignInRoute
 }
 
 export interface FileRoutesById {
@@ -82,14 +98,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/analytics': typeof AnalyticsRoute
   '/settings': typeof SettingsRoute
+  '/auth/sign-in': typeof AuthSignInRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/analytics' | '/settings'
+  fullPaths: '/' | '/analytics' | '/settings' | '/auth/sign-in'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/analytics' | '/settings'
-  id: '__root__' | '/' | '/analytics' | '/settings'
+  to: '/' | '/analytics' | '/settings' | '/auth/sign-in'
+  id: '__root__' | '/' | '/analytics' | '/settings' | '/auth/sign-in'
   fileRoutesById: FileRoutesById
 }
 
@@ -97,12 +114,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnalyticsRoute: typeof AnalyticsRoute
   SettingsRoute: typeof SettingsRoute
+  AuthSignInRoute: typeof AuthSignInRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnalyticsRoute: AnalyticsRoute,
   SettingsRoute: SettingsRoute,
+  AuthSignInRoute: AuthSignInRoute,
 }
 
 export const routeTree = rootRoute
@@ -117,7 +136,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/analytics",
-        "/settings"
+        "/settings",
+        "/auth/sign-in"
       ]
     },
     "/": {
@@ -128,6 +148,9 @@ export const routeTree = rootRoute
     },
     "/settings": {
       "filePath": "settings.tsx"
+    },
+    "/auth/sign-in": {
+      "filePath": "auth/sign-in.tsx"
     }
   }
 }

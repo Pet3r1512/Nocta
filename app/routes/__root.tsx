@@ -12,6 +12,9 @@ import Header from "~/components/Layout/Header";
 import { NotFound } from "~/components/NotFound";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
+import { ClerkProvider } from "@clerk/tanstack-react-start";
+// import { useTheme } from "~/hooks/useTheme";
+// import { dark } from "@clerk/themes";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -72,19 +75,26 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   const route = useRouter();
+  // const { theme } = useTheme();
   return (
-    <html>
-      <head>
-        <HeadContent />
-      </head>
-      <body className="relative lg:space-y-10 bg-white dark:bg-background-dark dark:text-white text-black">
-        {/* Header here */}
-        <Header />
-        {children}
-        <BottomNavbarContainer pathname={route.latestLocation.pathname} />
-        {/* <TanStackRouterDevtools position="bottom-right" /> */}
-        <Scripts />
-      </body>
-    </html>
+    <ClerkProvider
+    // appearance={{
+    //   baseTheme: theme === "dark" ? dark : undefined,
+    // }}
+    >
+      <html>
+        <head>
+          <HeadContent />
+        </head>
+        <body className="relative lg:space-y-10 bg-white dark:bg-background-dark dark:text-white text-black">
+          {/* Header here */}
+          <Header />
+          {children}
+          <BottomNavbarContainer pathname={route.latestLocation.pathname} />
+          {/* <TanStackRouterDevtools position="bottom-right" /> */}
+          <Scripts />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

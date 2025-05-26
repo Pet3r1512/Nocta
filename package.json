@@ -13,6 +13,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@clerk/tanstack-react-start": "^0.15.6",
+    "@clerk/themes": "^2.2.46",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@tanstack/react-router": "^1.112.18",
