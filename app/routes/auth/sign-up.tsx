@@ -1,9 +1,9 @@
-import { SignIn } from "@clerk/tanstack-react-start";
+import { SignUp } from "@clerk/tanstack-react-start";
 import { createFileRoute } from "@tanstack/react-router";
 import { useTheme } from "~/hooks/useTheme";
 import { dark } from "@clerk/themes";
 
-export const Route = createFileRoute("/auth/sign-in")({
+export const Route = createFileRoute("/auth/sign-up")({
   component: RouteComponent,
 });
 
@@ -12,12 +12,12 @@ function RouteComponent() {
 
   return (
     <section className="flex items-center justify-center">
-      <SignIn
+      <SignUp
         key={theme}
         appearance={{
           baseTheme: theme === "dark" ? dark : undefined,
         }}
-        signUpUrl="/auth/sign-up"
+        signInUrl="/auth/sign-in"
       />
     </section>
   );
