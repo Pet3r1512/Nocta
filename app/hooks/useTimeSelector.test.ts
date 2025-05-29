@@ -49,3 +49,18 @@
         expect(result.current.minutes).toBe(55)
         expect(onChange).toHaveBeenCalledWith("07:55")
     })
+
+    it("toggles AM/PM correctly", () => {
+        const onChange = vi.fn();
+        const { result } = renderHook(() => useTimeSelector("10:00", onChange));
+
+        expect(result.current.isPM).toBe(false);
+
+        act(() => {
+            result.current.toggleAMPM();
+        });
+
+        expect(result.current.isPM).toBe(true);
+        expect(onChange).toHaveBeenLastCalledWith("22:00");
+    });
+})
