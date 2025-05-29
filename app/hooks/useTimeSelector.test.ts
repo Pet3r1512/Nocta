@@ -26,3 +26,26 @@
         expect(result.current.hours).toBe(6)
         expect(onChange).toHaveBeenCalledWith("06:00")
     })
+    it("should increase minute by 5 correctly", () => {
+        const onChange = vi.fn()
+        const { result } = renderHook(() => useTimeSelector("07:00", onChange))
+
+        act(() => {
+            result.current.incrementMinutes()
+        })
+
+        expect(result.current.minutes).toBe(5)
+        expect(onChange).toHaveBeenCalledWith("07:05")
+    })
+
+    it("should decrease minute by 5 correctlt", () => {
+        const onChange = vi.fn()
+        const { result } = renderHook(() => useTimeSelector("07:00", onChange))
+
+        act(() => {
+            result.current.decrementMinutes()
+        })
+
+        expect(result.current.minutes).toBe(55)
+        expect(onChange).toHaveBeenCalledWith("07:55")
+    })
