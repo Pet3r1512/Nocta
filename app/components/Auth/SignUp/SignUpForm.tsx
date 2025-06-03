@@ -46,21 +46,26 @@ export function SignUpForm({
                   <Input
                     id="email"
                     type="email"
-                    placeholder="m@example.com"
+                    placeholder="example@email.com"
                     required
                   />
                 </div>
                 <div className="grid gap-3">
-                  <div className="flex items-center">
-                    <Label htmlFor="password">Password</Label>
-                    <a
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </a>
-                  </div>
+                  <Label htmlFor="username">Username</Label>
+                  <Input
+                    id="username"
+                    type="text"
+                    placeholder="example_username"
+                    required
+                  />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="password">Password</Label>
                   <Input id="password" type="password" required />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="confirm_password">Confirm Password</Label>
+                  <Input id="confirm_password" type="password" required />
                 </div>
                 <Button type="submit" className="w-full">
                   Login
