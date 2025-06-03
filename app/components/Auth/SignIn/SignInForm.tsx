@@ -87,7 +87,7 @@ export function SignInForm({
               <div className="text-center text-sm">
                 Don't have an account?{" "}
                 <a
-                  href="/auth/sign-in"
+                  href="/auth/sign-Up"
                   className="underline underline-offset-4 font-semibold"
                 >
                   Sign Up
@@ -97,10 +97,6 @@ export function SignInForm({
           </form>
         </CardContent>
       </Card>
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </div>
     </div>
   );
 }
