@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
@@ -11,6 +13,8 @@ import {
 import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
+import { auth } from "~/lib/auth";
+import { authClient } from "~/lib/auth-client";
 import { cn } from "~/utils/cn";
 
 export function SignUpForm({
@@ -113,7 +117,32 @@ export function SignUpForm({
                     </a>
                   </Label>
                 </div>
-                <Button type="submit" className="w-full">
+                <Button
+                  type="submit"
+                  className="w-full"
+                  onClick={async () => {
+                    const { data, error } = await authClient.signUp.email(
+                      {
+                        email: "pttp1512@gmail.com",
+                        password: "12345678",
+                        name: "peter", // user display name
+                      },
+                      {
+                        onRequest: (ctx: any) => {
+                          //show loading
+                        },
+                        onSuccess: (ctx: any) => {
+                          //redirect to the dashboard or sign in page
+                        },
+                        onError: (ctx) => {
+                          // display the error message
+
+                          console.log(ctx.error.message);
+                        },
+                      }
+                    );
+                  }}
+                >
                   Create New Account
                 </Button>
               </div>
