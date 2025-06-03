@@ -1,3 +1,5 @@
+import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -14,6 +16,9 @@ export function SignUpForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const [hidePassword, setHidePassword] = useState<boolean>(true);
+  const [hideConfirmPassword, setHideConfirmPassword] = useState<boolean>(true);
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="dark:bg-black/50 shadow-2xl">
@@ -61,11 +66,40 @@ export function SignUpForm({
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" required />
+
+                  <div className="relative">
+                    <Input
+                      id="password"
+                      type={hidePassword ? "password" : "text"}
+                      required
+                    />
+                    <button
+                      className="absolute top-1/2 right-2.5 -translate-y-1/2"
+                      onClick={() => {
+                        setHidePassword(!hidePassword);
+                      }}
+                    >
+                      {hidePassword ? <Eye /> : <EyeOff />}
+                    </button>
+                  </div>
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="confirm_password">Confirm Password</Label>
-                  <Input id="confirm_password" type="password" required />
+                  <div className="relative">
+                    <Input
+                      id="confirm_password"
+                      type={hideConfirmPassword ? "password" : "text"}
+                      required
+                    />
+                    <button
+                      className="absolute top-1/2 right-2.5 -translate-y-1/2"
+                      onClick={() => {
+                        setHideConfirmPassword(!hideConfirmPassword);
+                      }}
+                    >
+                      {hideConfirmPassword ? <Eye /> : <EyeOff />}
+                    </button>
+                  </div>
                 </div>
                 <Button type="submit" className="w-full">
                   Login
