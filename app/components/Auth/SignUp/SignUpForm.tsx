@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
+import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { cn } from "~/utils/cn";
@@ -101,8 +102,19 @@ export function SignUpForm({
                     </button>
                   </div>
                 </div>
+                <div className="flex items-center gap-3">
+                  <Checkbox id="terms" />
+                  <Label htmlFor="terms">
+                    <a
+                      className="lg:hover:underline transition-all duration-300 ease-linear"
+                      href="#"
+                    >
+                      Accept terms and conditions
+                    </a>
+                  </Label>
+                </div>
                 <Button type="submit" className="w-full">
-                  Login
+                  Create New Account
                 </Button>
               </div>
               <div className="text-center text-sm">
@@ -118,10 +130,6 @@ export function SignUpForm({
           </form>
         </CardContent>
       </Card>
-      <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </div>
     </div>
   );
 }
