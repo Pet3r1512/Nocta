@@ -27,7 +27,7 @@ jobs:
 
       # Drizzle migration
       - name: Run database migrations
-        run: npx drizzle-kit migrate --connection $DATABASE_URL
+        run: npx drizzle-kit migrate
 
       - run: pnpm build
 
