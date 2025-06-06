@@ -13,7 +13,6 @@ import {
 import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { auth } from "~/lib/auth";
 import { authClient } from "~/lib/auth-client";
 import { cn } from "~/utils/cn";
 
