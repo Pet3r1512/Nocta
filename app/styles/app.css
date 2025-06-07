@@ -30,3 +30,7 @@
   --background: #121212
   --text-color: #fff
 }
+
+.form-error {
+  color: #ef233c
+}

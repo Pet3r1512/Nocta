@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
@@ -13,9 +12,10 @@ import {
 import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { auth } from "~/lib/auth";
-import { authClient } from "~/lib/auth-client";
 import { cn } from "~/utils/cn";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
 
 export function SignUpForm({
   className,
@@ -23,6 +23,24 @@ export function SignUpForm({
 }: React.ComponentProps<"div">) {
   const [hidePassword, setHidePassword] = useState<boolean>(true);
   const [hideConfirmPassword, setHideConfirmPassword] = useState<boolean>(true);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm<SignUpFormData>({
+    resolver: zodResolver(SignUpSchema as any),
+    defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+      acceptTerms: false,
+    },
+  });
+
+  const onSubmit = (data: SignUpFormData) => console.log(data);
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -34,7 +52,7 @@ export function SignUpForm({
           <CardDescription>Login with your Google account</CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
                 <Button variant="outline" className="w-full">
@@ -56,29 +74,40 @@ export function SignUpForm({
                   <Input
                     id="email"
                     type="email"
+                    {...register("email")}
                     placeholder="example@email.com"
                     required
                   />
+                  {errors.email && (
+                    <p className="text-sm form-error">{errors.email.message}</p>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="username">Username</Label>
                   <Input
                     id="username"
                     type="text"
+                    {...register("username")}
                     placeholder="example_username"
                     required
                   />
+                  {errors.username && (
+                    <p className="text-sm form-error">
+                      {errors.username.message}
+                    </p>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="password">Password</Label>
-
                   <div className="relative">
                     <Input
                       id="password"
                       type={hidePassword ? "password" : "text"}
+                      {...register("password")}
                       required
                     />
                     <button
+                      tabIndex={-1}
                       className="absolute top-1/2 right-2.5 -translate-y-1/2"
                       onClick={() => {
                         setHidePassword(!hidePassword);
@@ -87,6 +116,11 @@ export function SignUpForm({
                       {hidePassword ? <Eye /> : <EyeOff />}
                     </button>
                   </div>
+                  {errors.password && (
+                    <p className="text-sm form-error">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="confirm_password">Confirm Password</Label>
@@ -94,9 +128,11 @@ export function SignUpForm({
                     <Input
                       id="confirm_password"
                       type={hideConfirmPassword ? "password" : "text"}
+                      {...register("confirmPassword")}
                       required
                     />
                     <button
+                      tabIndex={-1}
                       className="absolute top-1/2 right-2.5 -translate-y-1/2"
                       onClick={() => {
                         setHideConfirmPassword(!hideConfirmPassword);
@@ -105,44 +141,34 @@ export function SignUpForm({
                       {hideConfirmPassword ? <Eye /> : <EyeOff />}
                     </button>
                   </div>
+                  {errors.confirmPassword && (
+                    <p className="text-sm form-error">
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
                 </div>
-                <div className="flex items-center gap-3">
-                  <Checkbox id="terms" />
-                  <Label htmlFor="terms">
-                    <a
-                      className="lg:hover:underline transition-all duration-300 ease-linear"
-                      href="#"
-                    >
-                      Accept terms and conditions
-                    </a>
-                  </Label>
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full"
-                  onClick={async () => {
-                    const { data, error } = await authClient.signUp.email(
-                      {
-                        email: "pttp1512@gmail.com",
-                        password: "12345678",
-                        name: "peter", // user display name
-                      },
-                      {
-                        onRequest: (ctx: any) => {
-                          //show loading
-                        },
-                        onSuccess: (ctx: any) => {
-                          //redirect to the dashboard or sign in page
-                        },
-                        onError: (ctx) => {
-                          // display the error message
-
-                          console.log(ctx.error.message);
-                        },
-                      }
-                    );
-                  }}
-                >
+                <Controller
+                  name="acceptTerms"
+                  control={control}
+                  render={({ field }) => (
+                    <div className="flex items-center gap-3">
+                      <Checkbox
+                        id="acceptTerms"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                      <Label htmlFor="acceptTerms">
+                        I accept the terms and conditions
+                      </Label>
+                    </div>
+                  )}
+                />
+                {errors.acceptTerms && (
+                  <p className="text-sm text-red-500">
+                    {errors.acceptTerms.message}
+                  </p>
+                )}
+                <Button type="submit" className="w-full">
                   Create New Account
                 </Button>
               </div>
