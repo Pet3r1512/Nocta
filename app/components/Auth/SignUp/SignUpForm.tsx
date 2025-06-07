@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Eye, EyeOff } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -12,11 +11,10 @@ import {
 import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { authClient } from "~/lib/auth-client";
 import { cn } from "~/utils/cn";
-import { SignUpSchema, SignUpFormData } from "~/zod/SignUpSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function SignUpForm({
   className,
@@ -29,17 +27,15 @@ export function SignUpForm({
     register,
     handleSubmit,
     formState: { errors },
-    setError,
   } = useForm<SignUpFormData>({
-    resolver: zodResolver(SignUpSchema as any),
+    resolver: zodResolver(SignUpSchema),
+    defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+      confirmPassword: "",
+    },
   });
-
-  useEffect(() => {
-    setError("password", {
-      type: "manual",
-      message: "Password must has at least 8 characters",
-    });
-  }, [setError]);
 
   const onSubmit = (data: SignUpFormData) => console.log(data);
 
@@ -96,12 +92,7 @@ export function SignUpForm({
                     <Input
                       id="password"
                       type={hidePassword ? "password" : "text"}
-                      {...register("password", {
-                        min: {
-                          value: 8,
-                          message: "Password must has at least 8 characters",
-                        },
-                      })}
+                      {...register("password")}
                       required
                     />
                     <button
@@ -114,7 +105,9 @@ export function SignUpForm({
                     </button>
                   </div>
                   {errors.password && (
-                    <p className="form-error">{errors.password.message}</p>
+                    <p className="text-sm text-red-500">
+                      {errors.password.message}
+                    </p>
                   )}
                 </div>
                 <div className="grid gap-3">
