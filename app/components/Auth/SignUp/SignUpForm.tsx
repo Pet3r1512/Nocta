@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
@@ -12,9 +13,9 @@ import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { cn } from "~/utils/cn";
-import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
 
 export function SignUpForm({
   className,
@@ -27,13 +28,15 @@ export function SignUpForm({
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm<SignUpFormData>({
-    resolver: zodResolver(SignUpSchema),
+    resolver: zodResolver(SignUpSchema as any),
     defaultValues: {
       email: "",
       username: "",
       password: "",
       confirmPassword: "",
+      acceptTerms: false,
     },
   });
 
@@ -75,6 +78,9 @@ export function SignUpForm({
                     placeholder="example@email.com"
                     required
                   />
+                  {errors.email && (
+                    <p className="text-sm form-error">{errors.email.message}</p>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="username">Username</Label>
@@ -85,6 +91,11 @@ export function SignUpForm({
                     placeholder="example_username"
                     required
                   />
+                  {errors.username && (
+                    <p className="text-sm form-error">
+                      {errors.username.message}
+                    </p>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="password">Password</Label>
@@ -105,7 +116,7 @@ export function SignUpForm({
                     </button>
                   </div>
                   {errors.password && (
-                    <p className="text-sm text-red-500">
+                    <p className="text-sm form-error">
                       {errors.password.message}
                     </p>
                   )}
@@ -128,18 +139,33 @@ export function SignUpForm({
                       {hideConfirmPassword ? <Eye /> : <EyeOff />}
                     </button>
                   </div>
+                  {errors.confirmPassword && (
+                    <p className="text-sm form-error">
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
                 </div>
-                <div className="flex items-center gap-3">
-                  <Checkbox id="terms" />
-                  <Label htmlFor="terms">
-                    <a
-                      className="lg:hover:underline transition-all duration-300 ease-linear"
-                      href="#"
-                    >
-                      Accept terms and conditions
-                    </a>
-                  </Label>
-                </div>
+                <Controller
+                  name="acceptTerms"
+                  control={control}
+                  render={({ field }) => (
+                    <div className="flex items-center gap-3">
+                      <Checkbox
+                        id="acceptTerms"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                      <Label htmlFor="acceptTerms">
+                        I accept the terms and conditions
+                      </Label>
+                    </div>
+                  )}
+                />
+                {errors.acceptTerms && (
+                  <p className="text-sm text-red-500">
+                    {errors.acceptTerms.message}
+                  </p>
+                )}
                 <Button type="submit" className="w-full">
                   Create New Account
                 </Button>
