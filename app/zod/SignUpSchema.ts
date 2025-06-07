@@ -1,15 +1,8 @@
-import { z, ZodType } from "zod/v4"
+import { z } from "zod"
 
-export interface SignUpFormData {
-    email: string,
-    username: string,
-    password: string,
-    confirmPassword: string
-}
-
-export const SignUpSchema: ZodType<SignUpFormData> = z.object(
+export const SignUpSchema = z.object(
     {
-        email: z.email(),
+        email: z.string().email(),
         username: z.string(),
         password: z.string().min(8, { message: "Password must has at least 8 characters" }),
         confirmPassword: z.string()
@@ -17,4 +10,6 @@ export const SignUpSchema: ZodType<SignUpFormData> = z.object(
 ).refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"]
-}).required()
+})
+
+export type SignUpFormData = z.infer<typeof SignUpSchema>
