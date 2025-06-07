@@ -10,6 +10,9 @@ export const SignUpSchema = z.object(
 ).refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
     path: ["confirmPassword"]
+}).refine((data) => data.acceptTerms === true, {
+    message: "You must accept the terms and conditions",
+    path: ["acceptTerms"]
 })
 
 export type SignUpFormData = z.infer<typeof SignUpSchema>
