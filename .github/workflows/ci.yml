@@ -9,7 +9,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      VITE_DATABASE_URL: ${{ secrets.VITE_DATABASE_URL }}
 
     steps:
       - uses: actions/checkout@v4
