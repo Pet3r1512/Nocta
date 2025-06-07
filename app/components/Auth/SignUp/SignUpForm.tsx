@@ -107,6 +107,7 @@ export function SignUpForm({
                       required
                     />
                     <button
+                      tabIndex={-1}
                       className="absolute top-1/2 right-2.5 -translate-y-1/2"
                       onClick={() => {
                         setHidePassword(!hidePassword);
@@ -131,6 +132,7 @@ export function SignUpForm({
                       required
                     />
                     <button
+                      tabIndex={-1}
                       className="absolute top-1/2 right-2.5 -translate-y-1/2"
                       onClick={() => {
                         setHideConfirmPassword(!hideConfirmPassword);
