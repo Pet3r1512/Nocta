@@ -12,7 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "drizzle-neon-generate": "npx drizzle-kit generate",
-    "drizzle-neon-mirgrate": "npx drizzle-kit migrate"
+    "drizzle-neon-migrate": "npx drizzle-kit migrate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
