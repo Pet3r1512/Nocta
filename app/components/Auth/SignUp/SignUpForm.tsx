@@ -116,32 +116,7 @@ export function SignUpForm({
                     </a>
                   </Label>
                 </div>
-                <Button
-                  type="submit"
-                  className="w-full"
-                  onClick={async () => {
-                    const { data, error } = await authClient.signUp.email(
-                      {
-                        email: "pttp1512@gmail.com",
-                        password: "12345678",
-                        name: "peter", // user display name
-                      },
-                      {
-                        onRequest: (ctx: any) => {
-                          //show loading
-                        },
-                        onSuccess: (ctx: any) => {
-                          //redirect to the dashboard or sign in page
-                        },
-                        onError: (ctx) => {
-                          // display the error message
-
-                          console.log(ctx.error.message);
-                        },
-                      }
-                    );
-                  }}
-                >
+                <Button type="submit" className="w-full">
                   Create New Account
                 </Button>
               </div>
