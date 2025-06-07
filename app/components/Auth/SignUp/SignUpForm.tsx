@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
@@ -15,6 +13,9 @@ import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { authClient } from "~/lib/auth-client";
 import { cn } from "~/utils/cn";
+import { SignUpSchema, SignUpFormData } from "~/zod/SignUpSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 export function SignUpForm({
   className,
@@ -22,6 +23,15 @@ export function SignUpForm({
 }: React.ComponentProps<"div">) {
   const [hidePassword, setHidePassword] = useState<boolean>(true);
   const [hideConfirmPassword, setHideConfirmPassword] = useState<boolean>(true);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setError,
+  } = useForm<SignUpFormData>({});
+
+  const onSubmit = (data: SignUpFormData) => console.log(data);
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -55,6 +65,7 @@ export function SignUpForm({
                   <Input
                     id="email"
                     type="email"
+                    {...register("email")}
                     placeholder="example@email.com"
                     required
                   />
@@ -64,17 +75,18 @@ export function SignUpForm({
                   <Input
                     id="username"
                     type="text"
+                    {...register("username")}
                     placeholder="example_username"
                     required
                   />
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="password">Password</Label>
-
                   <div className="relative">
                     <Input
                       id="password"
                       type={hidePassword ? "password" : "text"}
+                      {...register("password")}
                       required
                     />
                     <button
@@ -86,6 +98,7 @@ export function SignUpForm({
                       {hidePassword ? <Eye /> : <EyeOff />}
                     </button>
                   </div>
+                  <p>{errors.password?.message}</p>
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="confirm_password">Confirm Password</Label>
@@ -93,6 +106,7 @@ export function SignUpForm({
                     <Input
                       id="confirm_password"
                       type={hideConfirmPassword ? "password" : "text"}
+                      {...register("confirmPassword")}
                       required
                     />
                     <button
