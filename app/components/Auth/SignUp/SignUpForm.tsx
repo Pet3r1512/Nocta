@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -29,7 +30,16 @@ export function SignUpForm({
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<SignUpFormData>({});
+  } = useForm<SignUpFormData>({
+    resolver: zodResolver(SignUpSchema as any),
+  });
+
+  useEffect(() => {
+    setError("password", {
+      type: "manual",
+      message: "Password must has at least 8 characters",
+    });
+  }, [setError]);
 
   const onSubmit = (data: SignUpFormData) => console.log(data);
 
@@ -86,7 +96,12 @@ export function SignUpForm({
                     <Input
                       id="password"
                       type={hidePassword ? "password" : "text"}
-                      {...register("password")}
+                      {...register("password", {
+                        min: {
+                          value: 8,
+                          message: "Password must has at least 8 characters",
+                        },
+                      })}
                       required
                     />
                     <button
@@ -98,7 +113,9 @@ export function SignUpForm({
                       {hidePassword ? <Eye /> : <EyeOff />}
                     </button>
                   </div>
-                  <p>{errors.password?.message}</p>
+                  {errors.password && (
+                    <p className="form-error">{errors.password.message}</p>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="confirm_password">Confirm Password</Label>
