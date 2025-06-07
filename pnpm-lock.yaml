@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^5.0.1
+        version: 5.0.1(react-hook-form@7.57.0(react@19.0.0))
       '@neondatabase/serverless':
         specifier: ^1.0.0
         version: 1.0.0
@@ -56,6 +59,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      react-hook-form:
+        specifier: ^7.57.0
+        version: 7.57.0(react@19.0.0)
       redaxios:
         specifier: ^0.5.1
         version: 0.5.1
@@ -1195,6 +1201,11 @@ packages:
   '@hexagon/base64@1.1.28':
     resolution: {integrity: sha512-lhqDEAvWixy3bZ+UOYbPwUbBkwBq5C1LAJ/xPC8Oi+lL54oyakv/npbA0aU2hgCsx/1NUd4IBvV03+aUBWxerw==}
 
+  '@hookform/resolvers@5.0.1':
+    resolution: {integrity: sha512-u/+Jp83luQNx9AdyW2fIPGY6Y7NG68eN2ZW8FOJYL+M0i4s49+refdJdOp/A9n9HFQtQs3HIDHQvX3ZET2o7YA==}
+    peerDependencies:
+      react-hook-form: ^7.55.0
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -2011,6 +2022,9 @@ packages:
 
   '@speed-highlight/core@1.2.7':
     resolution: {integrity: sha512-0dxmVj4gxg3Jg879kvFS/msl4s9F3T9UXC1InxgOf7t5NvcPD97u/WTA5vL/IxWHMn7qSxBozqrnnE2wvl1m8g==}
+
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
 
   '@storybook/addon-actions@8.6.12':
     resolution: {integrity: sha512-B5kfiRvi35oJ0NIo53CGH66H471A3XTzrfaa6SxXEJsgxxSeKScG5YeXcCvLiZfvANRQ7QDsmzPUgg0o3hdMXw==}
@@ -5156,6 +5170,12 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
+  react-hook-form@7.57.0:
+    resolution: {integrity: sha512-RbEks3+cbvTP84l/VXGUZ+JMrKOS8ykQCRYdm5aYsxnDquL0vspsyNhGRO7pcH6hsZqWlPOjLye7rJqdtdAmlg==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
@@ -6966,6 +6986,11 @@ snapshots:
 
   '@hexagon/base64@1.1.28': {}
 
+  '@hookform/resolvers@5.0.1(react-hook-form@7.57.0(react@19.0.0))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.57.0(react@19.0.0)
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.6':
@@ -7786,6 +7811,8 @@ snapshots:
       '@sinonjs/commons': 3.0.1
 
   '@speed-highlight/core@1.2.7': {}
+
+  '@standard-schema/utils@0.3.0': {}
 
   '@storybook/addon-actions@8.6.12(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
@@ -11970,6 +11997,10 @@ snapshots:
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+
+  react-hook-form@7.57.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
 
   react-is@17.0.2: {}
 
