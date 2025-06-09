@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, LoaderCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
@@ -52,7 +52,6 @@ export function SignUpForm({
   });
 
   const onSubmit = async (data: SignUpFormData) => {
-    console.log(data);
     await signup.mutateAsync({
       email: data.email,
       username: data.email,
@@ -187,7 +186,11 @@ export function SignUpForm({
                   </p>
                 )}
                 <Button type="submit" className="w-full">
-                  Create New Account
+                  {signup.isPending ? (
+                    <LoaderCircle className="animate-spin" />
+                  ) : (
+                    <p>Create New Account</p>
+                  )}
                 </Button>
               </div>
               <div className="text-center text-sm">
