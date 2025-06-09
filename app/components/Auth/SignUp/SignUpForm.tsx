@@ -54,7 +54,7 @@ export function SignUpForm({
   const onSubmit = async (data: SignUpFormData) => {
     await signup.mutateAsync({
       email: data.email,
-      username: data.email,
+      username: data.username,
       password: data.password,
     });
   };
