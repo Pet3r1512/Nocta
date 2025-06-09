@@ -17,6 +17,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
 import { EmailSignup } from "~/services/mutations/auth/EmailSignup";
+import { toast } from "sonner";
 
 export function SignUpForm({
   className,
@@ -42,11 +43,11 @@ export function SignUpForm({
   });
 
   const signup = EmailSignup({
-    onSuccess: (data) => {
-      console.log("Sign up Done ", data);
+    onSuccess: () => {
+      toast.success("Sign Up Successfully!");
     },
     onError: (error) => {
-      console.error(error.message);
+      toast.error(error.message);
     },
   });
 
