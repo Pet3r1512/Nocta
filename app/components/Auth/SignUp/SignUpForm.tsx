@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, LoaderCircle } from "lucide-react";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
@@ -16,6 +16,8 @@ import { cn } from "~/utils/cn";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
+import { EmailSignup } from "~/services/mutations/auth/EmailSignup";
+import { toast } from "sonner";
 
 export function SignUpForm({
   className,
@@ -40,7 +42,22 @@ export function SignUpForm({
     },
   });
 
-  const onSubmit = (data: SignUpFormData) => console.log(data);
+  const signup = EmailSignup({
+    onSuccess: () => {
+      toast.success("Sign Up Successfully!");
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  const onSubmit = async (data: SignUpFormData) => {
+    await signup.mutateAsync({
+      email: data.email,
+      username: data.email,
+      password: data.password,
+    });
+  };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -169,7 +186,11 @@ export function SignUpForm({
                   </p>
                 )}
                 <Button type="submit" className="w-full">
-                  Create New Account
+                  {signup.isPending ? (
+                    <LoaderCircle className="animate-spin" />
+                  ) : (
+                    <p>Create New Account</p>
+                  )}
                 </Button>
               </div>
               <div className="text-center text-sm">

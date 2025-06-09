@@ -1,11 +1,13 @@
+import { QueryClient } from "@tanstack/react-query";
 import {
   HeadContent,
   Outlet,
   Scripts,
-  createRootRoute,
+  createRootRouteWithContext,
   useRouter,
 } from "@tanstack/react-router";
 import * as React from "react";
+import { Toaster } from "sonner";
 import { DefaultCatchBoundary } from "~/components/DefaultCatchBoundary";
 import BottomNavbarContainer from "~/components/Layout/BottomNavbar/BottomNavbarContainer";
 import Header from "~/components/Layout/Header";
@@ -13,7 +15,9 @@ import { NotFound } from "~/components/NotFound";
 import appCss from "~/styles/app.css?url";
 import { seo } from "~/utils/seo";
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient;
+}>()({
   head: () => ({
     meta: [
       {
@@ -84,6 +88,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         {children}
         <BottomNavbarContainer pathname={route.latestLocation.pathname} />
         {/* <TanStackRouterDevtools position="bottom-right" /> */}
+        <Toaster richColors />
         <Scripts />
       </body>
     </html>
