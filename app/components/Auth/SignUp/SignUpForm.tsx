@@ -16,6 +16,7 @@ import { cn } from "~/utils/cn";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
+import { EmailSignup } from "~/services/mutations/auth/EmailSignup";
 
 export function SignUpForm({
   className,
@@ -40,7 +41,22 @@ export function SignUpForm({
     },
   });
 
-  const onSubmit = (data: SignUpFormData) => console.log(data);
+  const signup = EmailSignup();
+
+  const onSubmit = async (data: SignUpFormData) => {
+    console.log(data);
+    try {
+      const user = await signup.mutateAsync({
+        email: data.email,
+        username: data.email,
+        password: data.password,
+      });
+
+      console.log(user);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
