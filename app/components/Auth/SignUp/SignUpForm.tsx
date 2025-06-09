@@ -41,21 +41,22 @@ export function SignUpForm({
     },
   });
 
-  const signup = EmailSignup();
+  const signup = EmailSignup({
+    onSuccess: (data) => {
+      console.log("Sign up Done ", data);
+    },
+    onError: (error) => {
+      console.error(error.message);
+    },
+  });
 
   const onSubmit = async (data: SignUpFormData) => {
     console.log(data);
-    try {
-      const user = await signup.mutateAsync({
-        email: data.email,
-        username: data.email,
-        password: data.password,
-      });
-
-      console.log(user);
-    } catch (error) {
-      console.error(error);
-    }
+    await signup.mutateAsync({
+      email: data.email,
+      username: data.email,
+      password: data.password,
+    });
   };
 
   return (
