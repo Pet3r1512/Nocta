@@ -7,7 +7,8 @@ export function Gmail(options?: UseMutationOptions<GmailResponse, Error>) {
     return useMutation<GmailResponse, Error>({
         mutationFn: async () => {
             const { data, error } = await authClient.signIn.social({
-                provider: "google"
+                provider: "google",
+                callbackURL: "/"
             })
 
             if (error) {
