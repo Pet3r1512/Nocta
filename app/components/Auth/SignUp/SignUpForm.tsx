@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Eye, EyeOff, LoaderCircle } from "lucide-react";
-import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -13,61 +11,26 @@ import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { cn } from "~/utils/cn";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SignUpFormData, SignUpSchema } from "~/zod/SignUpSchema";
-import { EmailSignup } from "~/services/mutations/auth/EmailSignup";
-import { toast } from "sonner";
-import { Gmail } from "~/services/mutations/auth/Gmail";
+import { Controller } from "react-hook-form";
+import { useSignUp } from "~/hooks/auth/useSignUp";
 
 export function SignUpForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [hidePassword, setHidePassword] = useState<boolean>(true);
-  const [hideConfirmPassword, setHideConfirmPassword] = useState<boolean>(true);
-
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    errors,
     control,
-  } = useForm<SignUpFormData>({
-    resolver: zodResolver(SignUpSchema as any),
-    defaultValues: {
-      email: "",
-      username: "",
-      password: "",
-      confirmPassword: "",
-      acceptTerms: false,
-    },
-  });
-
-  const signup = EmailSignup({
-    onSuccess: () => {
-      toast.success("Sign Up Successfully!");
-    },
-    onError: (error) => {
-      toast.error(error.message);
-    },
-  });
-
-  const googleSignin = Gmail({
-    onSuccess: () => {
-      toast.success("Sign In via Google Successfully!");
-    },
-    onError: (error) => {
-      toast.error(error.message);
-    },
-  });
-
-  const onSubmit = async (data: SignUpFormData) => {
-    await signup.mutateAsync({
-      email: data.email,
-      username: data.username,
-      password: data.password,
-    });
-  };
+    signup,
+    googleSignin,
+    onSubmit,
+    hidePassword,
+    setHidePassword,
+    hideConfirmPassword,
+    setHideConfirmPassword,
+  } = useSignUp();
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
